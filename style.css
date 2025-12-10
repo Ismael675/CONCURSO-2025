@@ -1,12 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oswald:wght@500&display=swap");
+
+/* --- INICIO DEL CÓDIGO CORREGIDO PARA EL SCROLL --- */
 body {
   margin: 0;
   background-color: #1a1a1a;
   color: #FFFFFFDD;
   position: relative;
-  overflow: hidden;
+  /* CAMBIADO: Antes era 'overflow: hidden;'. Ahora solo restringimos el scroll horizontal. */
+  overflow-x: hidden; 
   font-family: "Inter", sans-serif;
 }
+/* --- FIN DEL CÓDIGO CORREGIDO PARA EL SCROLL --- */
+
 .card {
   position: absolute;
   left: 0;
@@ -151,15 +156,12 @@ nav > div:first-child {
 nav > div:last-child {
   gap: 24px;
 }
-
-/* NUEVOS ESTILOS: Estilo para la etiqueta <a> */
 nav > div:last-child > a {
-    text-decoration: none; /* Quitar el subrayado predeterminado */
-    color: #FFFFFFDD; /* Asegurar el color del texto */
-    cursor: pointer; /* Indicar que es interactivo */
+    text-decoration: none; 
+    color: #FFFFFFDD; 
+    cursor: pointer; 
+    white-space: nowrap;
 }
-
-/* MODIFICACIÓN: Aplicar el estilo active a la etiqueta <a> */
 nav > div:last-child > a.active {
   position: relative;
 }
@@ -173,7 +175,6 @@ nav > div:last-child > a.active:after {
   border-radius: 99px;
   background-color: #ecad29;
 }
-
 .indicator {
   position: fixed;
   left: 0;
@@ -252,24 +253,23 @@ nav > div:last-child > a.active:after {
   background-color: #fff;
   z-index: 100;
 }
+/* --- ESTILOS COMPLEMENTARIOS PARA CONTROLAR EL SCROLL --- */
+.home-page {
+  overflow: hidden; 
+  height: 100vh; /* Asegura que la altura sea exacta para la animación */
+}
+/* --- FIN ESTILOS COMPLEMENTARIOS --- */
 
-
-
-
-/* --- ESTILOS ESPECÍFICOS PARA LA PÁGINA DE VACACIONES --- */
-
-
+/* --- CSS DE VACACIONES --- */
 .vacaciones-container {
     padding: 120px 60px 60px 60px; 
     max-width: 1400px; 
     margin: 0 auto;
 }
-
 .hero-vacaciones {
     text-align: center;
     margin-bottom: 80px;
 }
-
 .hero-vacaciones h1 {
     font-size: clamp(3rem, 7vw, 5rem); 
     font-family: 'Oswald', sans-serif;
@@ -279,7 +279,6 @@ nav > div:last-child > a.active:after {
     letter-spacing: 2px;
     text-transform: uppercase;
 }
-
 .hero-vacaciones p {
     font-size: 1.2rem;
     max-width: 800px;
@@ -287,13 +286,11 @@ nav > div:last-child > a.active:after {
     color: #FFFFFF99;
     line-height: 1.6;
 }
-
 .cards-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     gap: 40px;
 }
-
 .vacation-card {
     height: 400px;
     background-size: cover;
@@ -305,11 +302,9 @@ nav > div:last-child > a.active:after {
     transition: transform 0.3s ease;
     display: block; 
 }
-
 .vacation-card:hover {
     transform: translateY(-8px); 
 }
-
 .card-overlay {
     position: absolute;
     top: 0;
@@ -324,7 +319,6 @@ nav > div:last-child > a.active:after {
     text-decoration: none; 
     color: white;
 }
-
 .card-overlay h3 {
     font-family: 'Oswald', sans-serif;
     font-size: 2.8rem;
@@ -332,13 +326,11 @@ nav > div:last-child > a.active:after {
     line-height: 1;
     text-transform: uppercase;
 }
-
 .card-overlay p {
     font-size: 1rem;
     color: #FFFFFFBB;
     margin-bottom: 15px;
 }
-
 .card-button {
     display: inline-block;
     padding: 10px 25px;
@@ -351,12 +343,9 @@ nav > div:last-child > a.active:after {
     text-transform: uppercase;
     transition: background-color 0.3s;
 }
-
 .card-button:hover {
     background-color: #d89e21; 
 }
-
-
 @media (max-width: 768px) {
     .vacaciones-container {
         padding: 100px 20px 40px 20px;
@@ -369,5 +358,142 @@ nav > div:last-child > a.active:after {
     }
     .card-overlay h3 {
         font-size: 2rem;
+    }
+}
+/* --- CSS DE DESTINOS --- */
+.destinos-container {
+    padding: 120px 60px 60px 60px; 
+    color: #FFFFFFDD;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.hero-destinos {
+    text-align: center;
+    margin-bottom: 80px;
+}
+.hero-destinos h1 {
+    font-size: clamp(3rem, 7vw, 5rem);
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    margin: 0;
+    padding-bottom: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+.hero-destinos p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #FFFFFF99;
+    line-height: 1.6;
+}
+.destinos-list {
+    display: flex;
+    flex-direction: column;
+    gap: 60px; 
+}
+.destino-card {
+    height: 350px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+}
+.destino-card:not(.odd-card) .destino-info {
+    left: 0;
+    text-align: left;
+}
+.destino-card.odd-card {
+    align-items: flex-end; 
+}
+.destino-card.odd-card .destino-info {
+    right: 0;
+    text-align: right;
+}
+.destino-info {
+    position: absolute;
+    bottom: 0;
+    width: 45%; 
+    padding: 40px;
+    background: linear-gradient(to top, rgba(26, 26, 26, 0.95) 0%, rgba(26, 26, 26, 0) 100%);
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.destino-card:not(.odd-card) .destino-info {
+    left: 0;
+}
+.destino-card.odd-card .destino-info {
+    right: 0;
+}
+.destino-info .location {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #ecad29; 
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+.destino-info h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    margin: 0 0 10px 0;
+    line-height: 1.1;
+    color: white;
+    text-transform: uppercase;
+}
+.destino-info p {
+    font-size: 1rem;
+    color: #FFFFFFBB;
+    margin-bottom: 20px;
+}
+.details-button {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: transparent;
+    border: 2px solid #ecad29;
+    color: #ecad29;
+    text-decoration: none;
+    border-radius: 99px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: all 0.3s;
+}
+.details-button:hover {
+    background-color: #ecad29;
+    color: #1a1a1a;
+}
+@media (max-width: 900px) {
+    .destino-info {
+        width: 100%; 
+        padding: 30px 20px;
+        text-align: left !important; 
+        background: linear-gradient(to top, rgba(26, 26, 26, 0.95) 0%, rgba(26, 26, 26, 0.5) 70%);
+    }
+    .destino-card.odd-card .destino-info {
+        right: auto; 
+        left: 0;
+    }
+    .hero-destinos h1 {
+        font-size: 3.5rem;
+    }
+}
+@media (max-width: 600px) {
+    .destinos-container {
+        padding: 100px 10px 40px 10px;
+    }
+    .destino-card {
+        height: 300px;
+    }
+    .destino-info h2 {
+        font-size: 2.2rem;
+    }
+    .destino-info p {
+        display: none; 
     }
 }
