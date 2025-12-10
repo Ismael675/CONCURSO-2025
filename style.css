@@ -732,3 +732,261 @@ nav > div:last-child > a.active:after {
         font-size: 3.5rem;
     }
 }
+
+
+
+
+/* ======================================================= */
+/* --- ESTILOS ESPECÍFICOS PARA LA PÁGINA DE OFERTAS --- */
+/* ======================================================= */
+
+.ofertas-container {
+    padding: 120px 60px 60px 60px;
+    color: #FFFFFFDD;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.hero-ofertas {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.hero-ofertas h1 {
+    font-size: clamp(3rem, 7vw, 5rem);
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    margin: 0;
+    padding-bottom: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.hero-ofertas p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #FFFFFF99;
+    line-height: 1.6;
+}
+
+/* --- CONTROLES DE FILTRO Y ORDENACIÓN --- */
+.offer-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    background-color: #2a2a2a;
+    padding: 20px 30px;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.filter-group, .sort-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.offer-controls label {
+    font-weight: 600;
+    color: #ecad29; /* Color de acento */
+    font-size: 1rem;
+}
+
+.offer-controls select {
+    padding: 10px 15px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #1a1a1a;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    appearance: none;
+    transition: border-color 0.3s;
+}
+.offer-controls select:focus {
+    border-color: #ecad29;
+    outline: none;
+}
+
+
+/* --- GRID Y TARJETAS DE OFERTA --- */
+.ofertas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.offer-card {
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.offer-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+}
+
+/* Etiquetas (Tags) en la esquina */
+.tag {
+    position: absolute;
+    top: 20px;
+    left: 0;
+    padding: 5px 15px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    color: #1a1a1a;
+    z-index: 10;
+}
+/* Colores de las etiquetas */
+.tag.lujo { background-color: #ffd700; } /* Oro */
+.tag.vuelo { background-color: #007bff; color: white; } /* Azul */
+.tag.hotel { background-color: #28a745; color: white; } /* Verde */
+.tag.cultura { background-color: #dc3545; color: white; } /* Rojo */
+.tag.aventura { background-color: #ff9900; } /* Naranja */
+.tag.flash { background-color: #ff00ff; color: #1a1a1a; } /* Fucsia */
+.tag.transoceánico { background-color: #00ffff; } /* Cian */
+.tag.centro { background-color: #999999; } /* Gris */
+
+
+.card-content-oferta {
+    position: relative;
+    width: 100%;
+    /* Degradado oscuro para que el texto sea visible en la parte inferior */
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.1) 60%); 
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.info-top {
+    color: white;
+}
+
+.info-top h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    margin: 5px 0 5px 0;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.info-top p {
+    font-size: 0.9rem;
+    color: #FFFFFFBB;
+}
+
+.descuento {
+    display: inline-block;
+    background-color: #ecad29;
+    color: #1a1a1a;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.price-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 10px;
+    border-top: 1px solid #ffffff11;
+}
+
+.precio-antiguo {
+    text-decoration: line-through;
+    color: #FFFFFF66;
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+.precio-nuevo {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    color: #ecad29; /* Precio destacado en amarillo */
+    font-weight: 700;
+    line-height: 1;
+}
+
+.reservar-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 15px;
+    background-color: #ecad29;
+    color: #1a1a1a;
+    text-decoration: none;
+    border-radius: 99px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition: background-color 0.3s, transform 0.2s;
+    text-transform: uppercase;
+}
+
+.reservar-btn:hover {
+    background-color: #d89e21;
+    transform: scale(1.05);
+}
+.reservar-btn .arrow-icon {
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+/* Media Queries para responsividad de Ofertas */
+@media (max-width: 900px) {
+    .ofertas-container {
+        padding: 100px 30px 40px 30px;
+    }
+    .offer-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .filter-group, .sort-group {
+        justify-content: space-between;
+    }
+    .offer-controls select {
+        flex-grow: 1;
+        max-width: 60%;
+    }
+    .ofertas-grid {
+        grid-template-columns: 1fr; /* Una columna en móvil */
+    }
+    .offer-card {
+        height: 350px;
+    }
+}
+@media (max-width: 600px) {
+     .ofertas-container {
+        padding: 80px 15px 30px 15px;
+    }
+    .hero-ofertas h1 {
+        font-size: 3rem;
+    }
+    /* En móviles pequeños, ajustamos los controles de filtro */
+    .offer-controls {
+        padding: 15px;
+    }
+    .filter-group, .sort-group {
+         gap: 5px;
+    }
+    .offer-controls label {
+        display: none; /* Ocultar etiquetas en el móvil si hay poco espacio */
+    }
+}

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ofertas Exclusivas | Global Express</title>
+    <link rel="stylesheet" href="./style.css"> 
+</head>
+<body>
+    
+    <nav>
+      <div>
+        <div class="svg-container">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"
+            />
+          </svg>
+        </div>
+        <div>GLOBAL EXPRESS</div>
+      </div>
+      <div>
+        <a href="./index.html">Inicio</a>
+        <a href="./vacaciones.html">Vacaciones</a> 
+        <a href="./destinos.html">Destinos</a>
+        <a href="./vuelos.html">Vuelos</a>
+        <a href="./ofertas.html" class="active">Ofertas</a>
+        <a href="./contacto.html">Contacto</a>
+        <div class="svg-container">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+            />
+          </svg>
+        </div>
+        <div class="svg-container">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </div>
+      </div>
+    </nav>
+
+    <div class="ofertas-container">
+        
+        <div class="hero-ofertas">
+            <h1>OFERTAS DE VIAJES EXCLUSIVAS</h1>
+            <p>Aprovecha descuentos y paquetes limitados. Desde escapadas de fin de semana hasta viajes de lujo con precios inigualables.</p>
+        </div>
+
+        <section class="offer-controls">
+            <div class="filter-group">
+                <label for="tipo-oferta">Filtrar por:</label>
+                <select id="tipo-oferta">
+                    <option value="todos">Todos los tipos</option>
+                    <option value="vuelos">Vuelos</option>
+                    <option value="hoteles">Hoteles</option>
+                    <option value="paquetes">Paquetes</option>
+                </select>
+            </div>
+            
+            <div class="sort-group">
+                <label for="ordenar-oferta">Ordenar por:</label>
+                <select id="ordenar-oferta">
+                    <option value="precio-asc">Precio (Menor a Mayor)</option>
+                    <option value="descuento">Mayor Descuento</option>
+                    <option value="popular">Más Populares</option>
+                </select>
+            </div>
+            
+        </section>
+
+        <section class="ofertas-grid">
+            
+            <div class="offer-card" style="background-image: url('maldivas.jpg');" data-type="paquetes">
+                <div class="tag lujo">Lujo</div>
+                <div class="card-content-oferta">
+                    <div class="info-top">
+                        <span class="descuento">-35%</span>
+                        <h3>Maldivas Todo Incluido</h3>
+                        <p>7 noches en Resort 5 estrellas, Vuelos + Traslados. ¡Oferta de Verano!</p>
+                    </div>
+                    <div class="price-box">
+                        <span class="precio-antiguo">€2999</span>
+                        <span class="precio-nuevo">€1949</span>
+                        <a href="#" class="reservar-btn">Reservar <span class="arrow-icon">→</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="offer-card" style="background-image: url('vuelo2.jpg');" data-type="vuelos">
+                <div class="tag vuelo">Vuelo Low Cost</div>
+                <div class="card-content-oferta">
+                    <div class="info-top">
+                        <span class="descuento">-50%</span>
+                        <h3>Vuelo Madrid - Nueva York</h3>
+                        <p>Vuelo de ida y vuelta con escala rápida. ¡Solo para fechas limitadas en invierno!</p>
+                    </div>
+                    <div class="price-box">
+                        <span class="precio-antiguo">€600</span>
+                        <span class="precio-nuevo">€300</span>
+                        <a href="#" class="reservar-btn">Reservar <span class="arrow-icon">→</span></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="offer-card" style="background-image: url('italia.jpg');" data-type="hoteles">
+                <div class="tag hotel">Hotel 4*</div>
+                <div class="card-content-oferta">
+                    <div class="info-top">
+                        <span class="descuento">-20%</span>
+                        <h3>Hotel Boutique en Roma</h3>
+                        <p>3 noches en el centro histórico de Roma. Desayuno incluido.</p>
+                    </div>
+                    <div class="price-box">
+                        <span class="precio-antiguo">€450</span>
+                        <span class="precio-nuevo">€360</span>
+                        <a href="#" class="reservar-btn">Reservar <span class="arrow-icon">→</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="offer-card" style="background-image: url('tailandia.jpg');" data-type="paquetes">
+                <div class="tag cultura">Cultural</div>
+                <div class="card-content-oferta">
+                    <div class="info-top">
+                        <span class="descuento">-25%</span>
+                        <h3>Circuito Tailandia Mágica</h3>
+                        <p>10 días explorando Bangkok y el norte. Vuelos + Hoteles + Guía.</p>
+                    </div>
+                    <div class="price-box">
+                        <span class="precio-antiguo">€1500</span>
+                        <span class="precio-nuevo">€1125</span>
+                        <a href="#" class="reservar-btn">Reservar <span class="arrow-icon">→</span></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="offer-card" style="background-image: url('vuelo.jpg');" data-type="vuelos">
+                <div class="tag vuelo">Oferta Flash</div>
+                <div class="card-content-oferta">
+                    <div class="info-top">
+                        <span class="descuento">-60%</span>
+                        <h3>Vuelo Barcelona - Berlín</h3>
+                        <p>El precio más bajo garantizado. Solo ida. ¡Perfecto para una escapada corta!</p>
+                    </div>
+                    <div class="price-box">
+                        <span class="precio-antiguo">€125</span>
+                        <span class="precio-nuevo">€49</span>
+                        <a href="#" class="reservar-btn">Reservar <span class="arrow-icon">→</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="offer-card" style="background-image: url('paris.jpg');" data-type="hoteles">
+                <div class="tag hotel">Centro Ciudad</div>
+                <div class="card-content-oferta">
+                    <div class="info-top">
+                        <span class="descuento">-30%</span>
+                        <h3>Hotel 5* en París</h3>
+                        <p>Descuento especial de 3 noches en el corazón de la capital francesa.</p>
+                    </div>
+                    <div class="price-box">
+                        <span class="precio-antiguo">€700</span>
+                        <span class="precio-nuevo">€490</span>
+                        <a href="#" class="reservar-btn">Reservar <span class="arrow-icon">→</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="offer-card" style="background-image: url('safari.jpg');" data-type="paquetes">
+                <div class="tag aventura">Aventura</div>
+                <div class="card-content-oferta">
+                    <div class="info-top">
+                        <span class="descuento">-15%</span>
+                        <h3>Safari en Kenia</h3>
+                        <p>Paquete de 5 días de safari con guía y alojamiento en campamento de lujo.</p>
+                    </div>
+                    <div class="price-box">
+                        <span class="precio-antiguo">€2800</span>
+                        <span class="precio-nuevo">€2380</span>
+                        <a href="#" class="reservar-btn">Reservar <span class="arrow-icon">→</span></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="offer-card" style="background-image: url('sidney\ helicoptero.jpg');" data-type="vuelos">
+                <div class="tag vuelo">Transoceánico</div>
+                <div class="card-content-oferta">
+                    <div class="info-top">
+                        <span class="descuento">-40%</span>
+                        <h3>Vuelo con helicoptero - Sídney</h3>
+                        <p>Disfruta de un vuelo con helicoptero por las alturas de Sídney.</p>
+                    </div>
+                    <div class="price-box">
+                        <span class="precio-antiguo">€1800</span>
+                        <span class="precio-nuevo">€500</span>
+                        <a href="#" class="reservar-btn">Reservar <span class="arrow-icon">→</span></a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+    
+</body>
+</html> 
