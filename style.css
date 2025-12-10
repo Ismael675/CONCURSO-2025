@@ -497,3 +497,238 @@ nav > div:last-child > a.active:after {
         display: none; 
     }
 }
+
+
+
+
+
+/* --- ESTILOS ESPECÍFICOS PARA LA PÁGINA DE VUELOS --- */
+
+
+
+
+.vuelos-container {
+    padding: 120px 60px 60px 60px;
+    color: #FFFFFFDD;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-vuelos {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.hero-vuelos h1 {
+    font-size: clamp(3rem, 7vw, 5rem);
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    margin: 0;
+    padding-bottom: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.hero-vuelos p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #FFFFFF99;
+    line-height: 1.6;
+}
+
+
+.search-form-section {
+    background-color: #2a2a2a; 
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 60px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+.radio-group {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.radio-group input[type="radio"] {
+    display: none;
+}
+
+.radio-group label {
+    cursor: pointer;
+    padding: 5px 15px;
+    border: 1px solid #ffffff55;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.radio-group input[type="radio"]:checked + label {
+    background-color: #ecad29;
+    color: #1a1a1a;
+    border-color: #ecad29;
+    font-weight: 600;
+}
+
+.input-group {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-field label {
+    font-size: 0.85rem;
+    color: #FFFFFF99;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.input-field input, .input-field select {
+    padding: 10px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #1a1a1a;
+    color: white;
+    font-size: 1rem;
+    appearance: none; 
+}
+
+.input-field input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.search-button {
+    width: 100%;
+    padding: 15px 0;
+    background-color: #ecad29;
+    color: #1a1a1a;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-transform: uppercase;
+}
+
+.search-button:hover {
+    background-color: #d89e21;
+}
+
+.search-button svg {
+    width: 24px;
+    height: 24px;
+    color: #1a1a1a;
+    stroke: #1a1a1a;
+    fill: none;
+}
+
+
+
+.ofertas-vuelos-section h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #ecad29;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.vuelo-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.vuelo-oferta-card {
+    background-color: #2a2a2a;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    border-left: 5px solid #ecad29;
+    transition: transform 0.3s;
+}
+
+.vuelo-oferta-card:hover {
+    transform: translateY(-5px);
+}
+
+.vuelo-precio {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5rem;
+    color: #ecad29;
+    margin-bottom: 5px;
+    display: block;
+    line-height: 1;
+}
+
+.vuelo-oferta-card h3 {
+    font-size: 1.5rem;
+    margin: 5px 0 10px 0;
+    color: white;
+}
+
+.vuelo-oferta-card p {
+    font-size: 0.95rem;
+    color: #FFFFFFBB;
+    margin-bottom: 20px;
+}
+
+.vuelo-cta {
+    display: inline-block;
+    padding: 8px 20px;
+    background-color: #444;
+    color: white;
+    text-decoration: none;
+    border-radius: 99px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.vuelo-cta:hover {
+    background-color: #ecad29;
+    color: #1a1a1a;
+}
+
+
+@media (max-width: 1024px) {
+    .input-group {
+        grid-template-columns: repeat(3, 1fr); 
+    }
+    .input-field.fecha-vuelta, .input-field.pasajeros {
+        
+        grid-column: span 1; 
+    }
+}
+
+@media (max-width: 768px) {
+    .vuelos-container {
+        padding: 100px 20px 40px 20px;
+    }
+    .input-group {
+        grid-template-columns: 1fr; 
+    }
+    .input-field.fecha-vuelta, .input-field.pasajeros {
+        grid-column: span 1;
+    }
+    .hero-vuelos h1 {
+        font-size: 3.5rem;
+    }
+}
