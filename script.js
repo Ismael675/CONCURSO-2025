@@ -360,3 +360,210 @@ async function start() {
 }
 
 start()
+
+
+
+
+// ===============================================
+// LÓGICA DEL CARRITO (Guardar como script.js)
+// ===============================================
+
+// Función para obtener el carrito del localStorage
+function getCart() {
+    const cart = localStorage.getItem('shoppingCart');
+    // Devuelve el array de productos o un array vacío si no existe
+    return cart ? JSON.parse(cart) : [];
+}
+
+// Función para guardar el carrito en el localStorage y actualizar el contador
+function saveCart(cart) {
+    localStorage.setItem('shoppingCart', JSON.stringify(cart));
+    updateCartCount();
+}
+
+// Función para actualizar el contador de artículos en el icono del carrito
+function updateCartCount() {
+    const cart = getCart();
+    const count = cart.length;
+    const countElement = document.getElementById('cart-count');
+    if (countElement) {
+        countElement.textContent = count;
+        // Muestra el badge si hay artículos, lo oculta si está vacío.
+        countElement.style.display = count > 0 ? 'block' : 'none';
+    }
+}
+
+// Función para AÑADIR un producto al carrito
+function addToCart(name, price, image, id) {
+    // Convertir el precio a número de punto flotante
+    const numericPrice = parseFloat(price);
+    if (isNaN(numericPrice)) {
+        console.error("Error: El precio proporcionado no es un número válido:", price);
+        alert("No se pudo añadir el producto. El precio es inválido.");
+        return; 
+    }
+
+    const cart = getCart();
+
+    // Crear el objeto del nuevo producto
+    const newProduct = {
+        // Usar el ID proporcionado o un timestamp como ID único
+        id: id || Date.now(), 
+        name: name,
+        price: numericPrice,
+        image: image
+    };
+
+    cart.push(newProduct);
+    saveCart(cart);
+    
+    // Alerta de confirmación visual
+    alert(`"${name}" ha sido añadido a tu cesta.`);
+}
+
+// Función para eliminar un producto del carrito por su ID (Usada en cesta.html)
+function removeFromCart(productId) {
+    let cart = getCart();
+    const initialLength = cart.length;
+    
+    // Filtrar el carrito: mantener solo los productos que NO coincidan con el ID
+    // Convertir a string para una comparación segura
+    cart = cart.filter(item => item.id.toString() !== productId.toString());
+    
+    if (cart.length < initialLength) {
+        saveCart(cart);
+        // Volver a renderizar si estamos en la página de la cesta
+        if (document.getElementById('cart-items')) {
+            renderCart(); 
+        }
+    }
+}
+
+
+
+
+
+
+
+// ===============================================
+// LÓGICA DEL CARRITO (Guardar como script.js)
+// ===============================================
+
+// Función para obtener el carrito del localStorage
+function getCart() {
+    const cart = localStorage.getItem('shoppingCart');
+    // Devuelve el array de productos o un array vacío si no existe
+    return cart ? JSON.parse(cart) : [];
+}
+
+// Función para guardar el carrito en el localStorage y actualizar el contador
+function saveCart(cart) {
+    localStorage.setItem('shoppingCart', JSON.stringify(cart));
+    updateCartCount();
+}
+
+// Función para actualizar el contador de artículos en el icono del carrito
+function updateCartCount() {
+    const cart = getCart();
+    const count = cart.length;
+    const countElement = document.getElementById('cart-count');
+    if (countElement) {
+        countElement.textContent = count;
+        // Muestra el badge si hay artículos, lo oculta si está vacío.
+        countElement.style.display = count > 0 ? 'block' : 'none';
+    }
+}
+
+// Función para AÑADIR un producto al carrito
+function addToCart(name, price, image, id) {
+    // Convertir el precio a número de punto flotante
+    const numericPrice = parseFloat(price);
+    if (isNaN(numericPrice)) {
+        console.error("Error: El precio proporcionado no es un número válido:", price);
+        alert("No se pudo añadir el producto. El precio es inválido.");
+        return; 
+    }
+
+    const cart = getCart();
+
+    // Crear el objeto del nuevo producto
+    const newProduct = {
+        // Usar el ID proporcionado o un timestamp como ID único
+        id: id || Date.now(), 
+        name: name,
+        price: numericPrice,
+        image: image
+    };
+
+    cart.push(newProduct);
+    saveCart(cart);
+    
+    // Alerta de confirmación visual
+    alert(`"${name}" ha sido añadido a tu cesta.`);
+}
+
+// Función para eliminar un producto del carrito por su ID (Usada en cesta.html)
+function removeFromCart(productId) {
+    let cart = getCart();
+    const initialLength = cart.length;
+    
+    // Filtrar el carrito: mantener solo los productos que NO coincidan con el ID
+    cart = cart.filter(item => item.id.toString() !== productId.toString());
+    
+    if (cart.length < initialLength) {
+        saveCart(cart);
+        // Volver a renderizar si estamos en la página de la cesta
+        if (document.getElementById('cart-items')) {
+            renderCart(); 
+        }
+    }
+}
+
+// Función para renderizar el contenido del carrito (Usada en cesta.html)
+function renderCart() {
+    const cart = getCart();
+    const cartItemsContainer = document.getElementById('cart-items');
+    const cartTotalElement = document.getElementById('cart-total');
+    
+    // Si no estamos en la página de la cesta, solo actualizamos el contador.
+    if (!cartItemsContainer || !cartTotalElement) {
+        updateCartCount();
+        return; 
+    }
+
+    cartItemsContainer.innerHTML = ''; // Limpiar contenido
+
+    if (cart.length === 0) {
+        // Mensaje cuando está vacío
+        cartItemsContainer.innerHTML = '<p class="empty-cart-message">Tu cesta está vacía. ¡Explora nuestras <a href="./ofertas.html">ofertas</a>!</p>';
+        cartTotalElement.textContent = '0.00';
+    } else {
+        let total = 0;
+        cart.forEach(item => {
+            const itemElement = document.createElement('article');
+            itemElement.classList.add('cart-item');
+            
+            itemElement.innerHTML = `
+                <img src="${item.image}" alt="${item.name}" class="item-image">
+                <div class="item-details">
+                    <h3 class="item-name">${item.name}</h3>
+                </div>
+                <div class="item-price">
+                    <span class="price-value">€${item.price.toFixed(2)}</span>
+                </div>
+                <button class="remove-btn" onclick="removeFromCart('${item.id}')" title="Eliminar de la cesta">
+                    &times;
+                </button>
+            `;
+            
+            cartItemsContainer.appendChild(itemElement);
+            total += item.price;
+        });
+        cartTotalElement.textContent = total.toFixed(2);
+    }
+    
+    updateCartCount(); 
+}
+
+// Ejecutar al cargar la página para inicializar el contador del carrito.
+document.addEventListener('DOMContentLoaded', updateCartCount);

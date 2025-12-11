@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cesta de Compra | Global Express</title>
+    <link rel="stylesheet" href="./style.css"> 
+</head>
+<body onload="renderCart()">
+    
+    <nav>
+      <div>
+        <div class="svg-container">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"
+            />
+          </svg>
+        </div>
+        <div>GLOBAL EXPRESS</div>
+      </div>
+      <div>
+        <a href="./index.html">Inicio</a>
+        <a href="./vacaciones.html">Vacaciones</a> 
+        <a href="./destinos.html">Destinos</a>
+        <a href="./vuelos.html">Vuelos</a>
+        <a href="./ofertas.html">Ofertas</a>
+        <a href="./contacto.html">Contacto</a>
+        <a href="./cesta.html" class="active">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 20px; height: 20px;">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.023.832l.236 1.768c.071.532.482.957.971.97h9.444c.489 0 .899-.438.971-.97l.236-1.768A1.125 1.125 0 0118.9 3h2.625"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 17.25c.749 0 1.5.01 2.25.011m0 0l-1.002 4.489m1.002-4.489c-.198 0-.396-.002-.594-.002m.594 0h-1.188M7.5 17.25c.749 0 1.5.01 2.25.011m0 0l-1.002 4.489m1.002-4.489c-.198 0-.396-.002-.594-.002m.594 0h-1.188M12 14.25h1.5M10.5 14.25h-1.5M12 14.25v-1.5M10.5 14.25v-1.5"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 6.75l-4.72 9.5a1.125 1.125 0 01-1.08.75H9.75a1.125 1.125 0 01-1.08-.75L3.78 6.75"></path>
+            </svg>
+            <span id="cart-count" class="cart-count-badge">0</span>
+        </a>
+      </div>
+    </nav>
+
+    <div class="cart-container">
+        <header class="cart-header">
+            <h1>Tu Cesta de Compra</h1>
+        </header>
+        
+        <section id="cart-items" class="cart-items-section">
+        </section>
+
+        <section class="cart-summary">
+            <div class="summary-line">
+                <span>Subtotal:</span>
+                <span class="summary-price">€<span id="cart-total">0.00</span></span>
+            </div>
+            <div class="summary-line total">
+                <span>Total a Pagar:</span>
+                <span class="summary-price total-price">€<span id="cart-total-final">0.00</span></span>
+            </div>
+            <button class="checkout-btn" onclick="alert('Funcionalidad de pago no implementada.')">Proceder al Pago</button>
+        </section>
+
+    </div>
+
+    <script src="./script.js"></script>
+    <script>
+        // Sincroniza el total con el total final para fines estéticos
+        const syncTotals = () => {
+            document.getElementById('cart-total-final').textContent = document.getElementById('cart-total').textContent;
+        };
+
+        // Listener para actualizar el total final cuando cambia el subtotal
+        const observer = new MutationObserver((mutationsList) => {
+            for(const mutation of mutationsList) {
+                if (mutation.type === 'childList' || mutation.type === 'characterData') {
+                    syncTotals();
+                    break;
+                }
+            }
+        });
+        observer.observe(document.getElementById('cart-total'), { childList: true, subtree: true, characterData: true });
+
+        // Asegurarse de que el renderizado se ejecute al cargar (ya se hace con onload, pero esto es redundancia de seguridad)
+        renderCart();
+    </script>
+</body>
+</html>

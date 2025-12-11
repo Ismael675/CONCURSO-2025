@@ -34,6 +34,14 @@
         <a href="./vuelos.html">Vuelos</a>
         <a href="./ofertas.html" class="active">Ofertas</a>
         <a href="./contacto.html">Contacto</a>
+        <a href="./cesta.html"> 
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" style="width: 20px; height: 20px;">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.023.832l.236 1.768c.071.532.482.957.971.97h9.444c.489 0 .899-.438.971-.97l.236-1.768A1.125 1.125 0 0118.9 3h2.625"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 17.25c.749 0 1.5.01 2.25.011m0 0l-1.002 4.489m1.002-4.489c-.198 0-.396-.002-.594-.002m.594 0h-1.188M7.5 17.25c.749 0 1.5.01 2.25.011m0 0l-1.002 4.489m1.002-4.489c-.198 0-.396-.002-.594-.002m.594 0h-1.188M12 14.25h1.5M10.5 14.25h-1.5M12 14.25v-1.5M10.5 14.25v-1.5"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 6.75l-4.72 9.5a1.125 1.125 0 01-1.08.75H9.75a1.125 1.125 0 01-1.08-.75L3.78 6.75"></path>
+            </svg>
+            <span id="cart-count" class="cart-count-badge">0</span>
+        </a>
         <div class="svg-container">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +115,7 @@
                     <div class="price-box">
                         <span class="precio-antiguo">€2999</span>
                         <span class="precio-nuevo">€1949</span>
-                        <a href="#" class="reservar-btn">Reservar <span class="arrow-icon">→</span></a>
+                        <a href="#" class="reservar-btn" onclick="addToCart('Maldivas Todo Incluido', 1949, 'maldivas.jpg', 1); return false;">Reservar <span class="arrow-icon">→</span></a>
                     </div>
                 </div>
             </div>
@@ -123,7 +131,7 @@
                     <div class="price-box">
                         <span class="precio-antiguo">€600</span>
                         <span class="precio-nuevo">€300</span>
-                        <a href="#" class="reservar-btn">Reservar <span class="arrow-icon">→</span></a>
+                        <a href="#" class="reservar-btn" onclick="addToCart('Vuelo Madrid - Nueva York', 300, 'vuelo2.jpg', 2); return false;">Reservar <span class="arrow-icon">→</span></a>
                     </div>
                 </div>
             </div>
@@ -139,7 +147,7 @@
                     <div class="price-box">
                         <span class="precio-antiguo">€450</span>
                         <span class="precio-nuevo">€360</span>
-                        <a href="#" class="reservar-btn">Reservar <span class="arrow-icon">→</span></a>
+                        <a href="#" class="reservar-btn" onclick="addToCart('Hotel Boutique en Roma', 360, 'italia.jpg', 3); return false;">Reservar <span class="arrow-icon">→</span></a>
                     </div>
                 </div>
             </div>
@@ -155,7 +163,7 @@
                     <div class="price-box">
                         <span class="precio-antiguo">€1500</span>
                         <span class="precio-nuevo">€1125</span>
-                        <a href="#" class="reservar-btn">Reservar <span class="arrow-icon">→</span></a>
+                        <a href="#" class="reservar-btn" onclick="addToCart('Circuito Tailandia Mágica', 1125, 'tailandia.jpg', 4); return false;">Reservar <span class="arrow-icon">→</span></a>
                     </div>
                 </div>
             </div>
@@ -171,7 +179,7 @@
                     <div class="price-box">
                         <span class="precio-antiguo">€125</span>
                         <span class="precio-nuevo">€49</span>
-                        <a href="#" class="reservar-btn">Reservar <span class="arrow-icon">→</span></a>
+                        <a href="#" class="reservar-btn" onclick="addToCart('Vuelo Barcelona - Berlín', 49, 'vuelo.jpg', 5); return false;">Reservar <span class="arrow-icon">→</span></a>
                     </div>
                 </div>
             </div>
@@ -187,7 +195,7 @@
                     <div class="price-box">
                         <span class="precio-antiguo">€700</span>
                         <span class="precio-nuevo">€490</span>
-                        <a href="#" class="reservar-btn">Reservar <span class="arrow-icon">→</span></a>
+                        <a href="#" class="reservar-btn" onclick="addToCart('Hotel 5* en París', 490, 'paris.jpg', 6); return false;">Reservar <span class="arrow-icon">→</span></a>
                     </div>
                 </div>
             </div>
@@ -203,7 +211,7 @@
                     <div class="price-box">
                         <span class="precio-antiguo">€2800</span>
                         <span class="precio-nuevo">€2380</span>
-                        <a href="#" class="reservar-btn">Reservar <span class="arrow-icon">→</span></a>
+                        <a href="#" class="reservar-btn" onclick="addToCart('Safari en Kenia', 2380, 'safari.jpg', 7); return false;">Reservar <span class="arrow-icon">→</span></a>
                     </div>
                 </div>
             </div>
@@ -219,7 +227,7 @@
                     <div class="price-box">
                         <span class="precio-antiguo">€1800</span>
                         <span class="precio-nuevo">€500</span>
-                        <a href="#" class="reservar-btn">Reservar <span class="arrow-icon">→</span></a>
+                        <a href="#" class="reservar-btn" onclick="addToCart('Vuelo con helicoptero - Sídney', 500, 'sidney helicoptero.jpg', 8); return false;">Reservar <span class="arrow-icon">→</span></a>
                     </div>
                 </div>
             </div>
@@ -228,5 +236,6 @@
 
     </div>
     
+    <script src="./script.js"></script>
 </body>
-</html> 
+</html>
